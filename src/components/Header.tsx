@@ -22,41 +22,36 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100"
+        className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-24 flex items-center"
       >
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 pt-10 pb-6 flex justify-between items-center relative">
+        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex justify-between items-center">
           
-          <div className="flex-1 md:hidden">
-            {/* Spacer for mobile logo if needed */}
-          </div>
-
-          <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center pointer-events-none">
-            <h1 className="serif text-xl md:text-3xl font-light tracking-[0.4em] text-[#000000] uppercase whitespace-nowrap">
+          {/* Logo - Left aligned */}
+          <div className="flex-shrink-0">
+            <h1 className="serif text-2xl md:text-3xl font-light tracking-[0.4em] text-[#000000] uppercase whitespace-nowrap">
               PHOTOGRAPH KOREA
             </h1>
           </div>
 
-          <nav className="hidden md:flex flex-1 justify-end space-x-12 items-center">
+          {/* Menu - Right aligned */}
+          <nav className="hidden md:flex items-center gap-10 lg:gap-16">
             {menuItems.map((item) => (
               <a 
                 key={item.en}
                 href={item.href} 
-                className="flex flex-col items-center group"
+                className="group py-2"
               >
                 <span className="serif text-xs lg:text-sm tracking-[0.2em] font-light text-[#000000] group-hover:opacity-50 transition-opacity">
                   {item.en}
-                </span>
-                <span className="text-[8px] lg:text-[9px] tracking-widest font-light text-gray-400 -mt-1 opacity-80 uppercase">
-                  {item.ko}
                 </span>
               </a>
             ))}
           </nav>
           
-          <div className="md:hidden flex-1 flex justify-end">
+          <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMenuOpen(true)} 
-              className="text-[#000000] z-[60] p-2 -mr-2 transition-opacity hover:opacity-50"
+              className="text-[#000000] p-2 -mr-2 transition-opacity hover:opacity-50"
               aria-label="Open menu"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
@@ -77,7 +72,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
               onClick={() => setIsMenuOpen(false)}
             />
             <motion.div
@@ -85,7 +80,7 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-full max-w-xs bg-white z-50 p-8 flex flex-col"
+              className="fixed top-0 right-0 h-full w-full max-w-xs bg-white z-[70] p-8 flex flex-col"
             >
               <div className="flex justify-between items-center mb-16">
                 <h2 className="serif text-lg tracking-widest text-gray-400 uppercase">MENU</h2>
@@ -108,9 +103,6 @@ const Header = () => {
                   >
                     <span className="serif text-2xl tracking-widest font-light text-black group-hover:opacity-50 transition-opacity">
                       {item.en}
-                    </span>
-                    <span className="text-xs tracking-[0.2em] font-light text-gray-400 uppercase mt-1">
-                      {item.ko}
                     </span>
                   </a>
                 ))}
