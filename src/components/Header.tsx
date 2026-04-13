@@ -28,14 +28,14 @@ const Header = () => {
           
           {/* Logo - Physically Centered using Absolute Positioning */}
           <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center z-10">
-            <h1 className="serif text-xl md:text-3xl font-light tracking-[0.4em] text-[#000000] uppercase whitespace-nowrap">
+            <h1 className="serif text-xl md:text-3xl font-light tracking-[0.15em] text-[#000000] uppercase whitespace-nowrap">
               PHOTOGRAPH KOREA
             </h1>
           </div>
 
           {/* Menu - Isolated to the Right using Absolute Positioning */}
-          <div className="absolute right-8 md:right-12 flex items-center z-20">
-            <nav className="hidden md:flex items-center gap-8 lg:gap-12">
+          <div className="absolute right-8 flex items-center z-20">
+            <nav className="hidden md:flex items-center gap-6">
               {menuItems.map((item) => (
                 <a 
                   key={item.en}
