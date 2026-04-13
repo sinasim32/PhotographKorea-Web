@@ -1,3 +1,5 @@
+import { Youtube } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer className="py-12 bg-white text-gray-400 border-t border-gray-100">
@@ -7,16 +9,22 @@ const Footer = () => {
           <h1 className="serif text-lg font-light tracking-[0.3em] text-black uppercase mb-4">
             PHOTOGRAPH KOREA
           </h1>
-          <p className="text-[10px] md:text-xs font-light leading-relaxed tracking-wider text-gray-500 mb-6">
+          <p className="text-[10px] md:text-xs font-light leading-relaxed tracking-wider text-gray-500 mb-10">
             We are a Christian-based creative company dedicated to sharing the beauty of God's creation through professional photography and the truth of His Word through our official YouTube channel, serving as a peaceful space where art and faith meet.
           </p>
+          
           <a 
             href="https://www.youtube.com/@photographkorea" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-black hover:opacity-60 transition-opacity border-b border-black/20 pb-1"
+            className="group flex items-center gap-3 text-xs md:text-sm font-bold tracking-[0.2em] text-black transition-all duration-300"
           >
-            PHOTOGRAPH KOREA YOUTUBE
+            <div className="p-1.5 rounded-full bg-black text-white group-hover:bg-red-600 transition-colors duration-300">
+              <Youtube size={14} strokeWidth={1.5} />
+            </div>
+            <span className="border-b border-black/10 group-hover:border-black/60 pb-0.5 transition-all duration-300">
+              PHOTOGRAPH KOREA YOUTUBE
+            </span>
           </a>
         </div>
 
