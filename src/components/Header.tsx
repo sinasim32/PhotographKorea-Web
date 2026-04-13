@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const menuItems = [
+  { en: 'DAILY BIBLE', ko: '성경 말씀', href: '#daily-bible' },
   { en: 'HOME', ko: '홈', href: '#hero' },
   { en: 'PORTFOLIO', ko: '포토폴리오', href: '#gallery' },
   { en: 'GUESTBOOK', ko: '방명록', href: '#guestbook' },
@@ -56,10 +57,10 @@ const Header = () => {
           <div className="md:hidden flex-1 flex justify-end">
             <button 
               onClick={() => setIsMenuOpen(true)} 
-              className="text-foreground z-50"
+              className="text-foreground z-[60] p-2 -mr-2 transition-opacity hover:opacity-50"
               aria-label="Open menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>

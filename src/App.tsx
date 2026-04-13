@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import DailyBible from './components/DailyBible';
 import Gallery from './components/Gallery';
 import Guestbook from './components/Guestbook';
 import Contact from './components/Contact';
@@ -10,6 +11,7 @@ function App() {
     <div className="min-h-screen selection:bg-black selection:text-white">
       <Header />
       <main>
+        <DailyBible />
         <Hero />
         <Gallery />
         <Guestbook />
