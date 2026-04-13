@@ -17,12 +17,12 @@ const Footer = () => {
             href="https://www.youtube.com/@photographkorea" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="group flex items-center gap-3 text-xs md:text-sm font-bold tracking-[0.2em] text-black transition-all duration-300"
+            className="group flex items-center gap-4 text-xs md:text-sm font-bold tracking-[0.2em] text-black transition-all duration-300"
           >
-            <div className="p-1.5 rounded-full bg-black text-white group-hover:bg-red-600 transition-colors duration-300">
-              <Youtube size={14} strokeWidth={1.5} />
+            <div className="p-2 rounded-full bg-[#FF0000] text-white shadow-sm transform transition-transform duration-300 group-hover:scale-125">
+              <Youtube size={16} strokeWidth={2} />
             </div>
-            <span className="border-b border-black/10 group-hover:border-black/60 pb-0.5 transition-all duration-300">
+            <span className="border-b-2 border-black/5 group-hover:border-black/80 pb-0.5 transition-all duration-300">
               PHOTOGRAPH KOREA YOUTUBE
             </span>
           </a>
