@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const menuItems = [
-  { en: 'DAILY BIBLE', ko: '성경 말씀', href: '#daily-bible' },
   { en: 'HOME', ko: '홈', href: '#hero' },
   { en: 'PORTFOLIO', ko: '포토폴리오', href: '#gallery' },
   { en: 'GUESTBOOK', ko: '방명록', href: '#guestbook' },

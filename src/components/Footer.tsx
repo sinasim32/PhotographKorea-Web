@@ -12,6 +12,9 @@ const Footer = () => {
         </div>
         
         <div className="flex gap-6 text-[7px] uppercase tracking-[0.3em] font-light">
+          <a href="https://www.youtube.com/@photographkorea" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+            PHOTOGRAPH KOREA YOUTUBE
+          </a>
           <a href="#" className="hover:text-black transition-colors">Instagram</a>
           <a href="#" className="hover:text-black transition-colors">Twitter</a>
         </div>
