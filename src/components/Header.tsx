@@ -24,42 +24,47 @@ const Header = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-24 flex items-center"
       >
-        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 grid grid-cols-3 items-center">
           
-          {/* Logo - Left aligned */}
-          <div className="flex-shrink-0">
-            <h1 className="serif text-2xl md:text-3xl font-light tracking-[0.4em] text-[#000000] uppercase whitespace-nowrap">
+          {/* Left Column - Spacing */}
+          <div className="hidden md:block"></div>
+
+          {/* Center Column - Logo */}
+          <div className="flex justify-center items-center">
+            <h1 className="serif text-xl md:text-3xl font-light tracking-[0.4em] text-[#000000] uppercase whitespace-nowrap">
               PHOTOGRAPH KOREA
             </h1>
           </div>
 
-          {/* Menu - Right aligned */}
-          <nav className="hidden md:flex items-center gap-10 lg:gap-16">
-            {menuItems.map((item) => (
-              <a 
-                key={item.en}
-                href={item.href} 
-                className="group py-2"
+          {/* Right Column - Menu */}
+          <div className="flex justify-end items-center">
+            <nav className="hidden md:flex items-center gap-8 lg:gap-12">
+              {menuItems.map((item) => (
+                <a 
+                  key={item.en}
+                  href={item.href} 
+                  className="group py-2"
+                >
+                  <span className="serif text-xs lg:text-sm tracking-[0.2em] font-light text-[#000000] group-hover:opacity-50 transition-opacity">
+                    {item.en}
+                  </span>
+                </a>
+              ))}
+            </nav>
+            
+            <div className="md:hidden flex items-center">
+              <button 
+                onClick={() => setIsMenuOpen(true)} 
+                className="text-[#000000] p-2 -mr-2 transition-opacity hover:opacity-50"
+                aria-label="Open menu"
               >
-                <span className="serif text-xs lg:text-sm tracking-[0.2em] font-light text-[#000000] group-hover:opacity-50 transition-opacity">
-                  {item.en}
-                </span>
-              </a>
-            ))}
-          </nav>
-          
-          <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setIsMenuOpen(true)} 
-              className="text-[#000000] p-2 -mr-2 transition-opacity hover:opacity-50"
-              aria-label="Open menu"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
