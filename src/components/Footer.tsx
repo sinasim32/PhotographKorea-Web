@@ -9,7 +9,7 @@ const Footer = () => {
           <h1 className="serif text-lg font-light tracking-[0.3em] text-black uppercase mb-4">
             PHOTOGRAPH KOREA
           </h1>
-          <p className="text-[10px] md:text-xs font-light leading-relaxed tracking-wider text-gray-500 mb-10">
+          <p className="text-sm md:text-lg font-medium leading-relaxed tracking-wide text-gray-700 mb-12 max-w-4xl">
             We are a Christian-based creative company dedicated to sharing the beauty of God's creation through professional photography and the truth of His Word through our official YouTube channel, serving as a peaceful space where art and faith meet.
           </p>
           
