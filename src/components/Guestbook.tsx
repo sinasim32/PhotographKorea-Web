@@ -36,9 +36,17 @@ const Guestbook = () => {
 
     if (error) {
       console.error('Error fetching entries:', error);
-      setError('Could not load guestbook entries.');
+      // Detailed error logging for easier debugging
+      if (error.code === 'PGRST116') {
+        setError('Table structure mismatch or table not found.');
+      } else if (error.message === 'Failed to fetch') {
+        setError('Network error. Please check your connection.');
+      } else {
+        setError(`Database error: ${error.message || 'Unknown error'}`);
+      }
     } else {
-      setEntries(data);
+      setEntries(data || []);
+      setError(null);
     }
     setIsLoading(false);
   };
@@ -157,8 +165,19 @@ const Guestbook = () => {
           {/* Entries Section */}
           <div className="md:col-span-2">
             {isLoading ? (
-              <div className="flex justify-center items-center h-64">
+              <div className="flex flex-col justify-center items-center h-64 gap-4">
                 <Loader2 className="animate-spin text-gray-300" size={40} />
+                <p className="text-xs text-gray-400 font-light tracking-widest animate-pulse">불러오는 중...</p>
+              </div>
+            ) : error && entries.length === 0 ? (
+              <div className="flex flex-col justify-center items-center h-64 text-center">
+                <p className="text-sm text-red-400 mb-4">{error}</p>
+                <button 
+                  onClick={() => fetchEntries()}
+                  className="text-[10px] uppercase tracking-widest border border-gray-200 px-4 py-2 hover:bg-gray-50 transition-colors"
+                >
+                  Retry Loading
+                </button>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
