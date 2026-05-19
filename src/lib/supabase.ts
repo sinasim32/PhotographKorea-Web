@@ -4,7 +4,9 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Supabase URL and Anon Key must be provided in .env file");
+  console.error("Supabase configuration is missing. Ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in Environment Variables.");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Fallback to empty strings to prevent initialization crash, 
+// though requests will still fail with 'Failed to fetch' or auth errors.
+export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
