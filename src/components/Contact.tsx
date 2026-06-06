@@ -83,7 +83,7 @@ const Contact = () => {
                 <p className="text-xs text-green-600 text-center mt-2">Message sent successfully.</p>
               )}
               {status === 'error' && (
-                <p className="text-xs text-red-600 text-center mt-2">Failed to send. Please try again.</p>
+                <p className="text-xs text-gray-400 text-center mt-2">Could not send. Please try later.</p>
               )}
             </form>
           </motion.div>

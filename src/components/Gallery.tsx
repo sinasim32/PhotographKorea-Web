@@ -9,6 +9,7 @@ const images = [
   { id: 4, src: "/images/gallery-4.jpg", alt: "Traditional Street" },
   { id: 5, src: "/images/gallery-5.jpg", alt: "Street Photography" },
   { id: 6, src: "/images/gallery-6.jpg", alt: "Mountain View" },
+  { id: 7, src: "/images/gallery-7.jpg", alt: "Blue Temple" },
 ];
 
 const breakpointColumnsObj = {
@@ -29,7 +30,7 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
     <SecureImage 
       src={image.src} 
       alt={image.alt}
-      objectFit="contain"
+      objectFit="cover"
       className="w-full h-auto transition-transform duration-700 ease-in-out group-hover:scale-105"
     />
   </motion.div>

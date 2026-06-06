@@ -29,26 +29,29 @@ const Guestbook = () => {
 
   const fetchEntries = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase
-      .from('guestbook')
-      .select('*')
-      .order('created_at', { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from('guestbook')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-    if (error) {
-      console.error('Error fetching entries:', error);
-      // Detailed error logging for easier debugging
-      if (error.code === 'PGRST116') {
-        setError('Table structure mismatch or table not found.');
-      } else if (error.message === 'Failed to fetch') {
-        setError('Network error. Please check your connection.');
+      if (error) {
+        console.error('Error fetching entries:', error);
+        if (error.code === 'PGRST116') {
+          setError('방명록 테이블을 찾을 수 없습니다.');
+        } else {
+          setError(`연결 오류: ${error.message || '데이터베이스에 연결할 수 없습니다.'}`);
+        }
       } else {
-        setError(`Database error: ${error.message || 'Unknown error'}`);
+        setEntries(data || []);
+        setError(null);
       }
-    } else {
-      setEntries(data || []);
-      setError(null);
+    } catch (err) {
+      console.error('Unexpected error in Guestbook:', err);
+      setError('서버와 통신하는 중 예기치 않은 오류가 발생했습니다.');
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,22 +77,28 @@ const Guestbook = () => {
     setIsSubmitting(true);
     setError(null);
 
-    const { error } = await supabase
-      .from('guestbook')
-      .insert([{ name, email, message, is_private: isPrivate }]);
+    try {
+      const { error } = await supabase
+        .from('guestbook')
+        .insert([{ name, email, message, is_private: isPrivate }]);
 
-    if (error) {
-      console.error('Error inserting entry:', error);
-      setError('Failed to post your message. Please try again.');
-    } else {
-      setName('');
-      setEmail('');
-      setMessage('');
-      setIsPrivate(false);
-      lastSubmitTime.current = now;
-      fetchEntries(); // Refresh entries
+      if (error) {
+        console.error('Error inserting entry:', error);
+        setError('메시지를 전송하지 못했습니다. 다시 시도해 주세요.');
+      } else {
+        setName('');
+        setEmail('');
+        setMessage('');
+        setIsPrivate(false);
+        lastSubmitTime.current = now;
+        fetchEntries(); // Refresh entries
+      }
+    } catch (err) {
+      console.error('Unexpected error during submit:', err);
+      setError('전송 중 예기치 않은 오류가 발생했습니다.');
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   return (
@@ -158,7 +167,6 @@ const Guestbook = () => {
                 {isSubmitting ? <Loader2 className="animate-spin" size={18}/> : <Send size={16}/>}
                 {isSubmitting ? 'Posting...' : 'Post Note'}
               </button>
-              {error && <p className="text-xs text-red-500 text-center">{error}</p>}
             </form>
           </motion.div>
 
@@ -171,13 +179,7 @@ const Guestbook = () => {
               </div>
             ) : error && entries.length === 0 ? (
               <div className="flex flex-col justify-center items-center h-64 text-center">
-                <p className="text-sm text-red-400 mb-4">{error}</p>
-                <button 
-                  onClick={() => fetchEntries()}
-                  className="text-[10px] uppercase tracking-widest border border-gray-200 px-4 py-2 hover:bg-gray-50 transition-colors"
-                >
-                  Retry Loading
-                </button>
+                {/* Error message hidden as per request */}
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

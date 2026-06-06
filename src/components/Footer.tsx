@@ -6,9 +6,12 @@ const Footer = () => {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex flex-col gap-8">
         {/* Main Brand & Description */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <h1 className="serif text-xl md:text-2xl font-light tracking-[0.15em] text-[#000000] uppercase mb-8">
+          <h1 className="serif text-xl md:text-2xl font-light tracking-[0.15em] text-[#000000] uppercase mb-1">
             PHOTOGRAPH KOREA
           </h1>
+          <p className="text-[0.7rem] text-black tracking-[0.15em] font-light mb-12">
+            © 2026 PHOTOGRAPH KOREA. All rights reserved.
+          </p>
           <p className="text-sm md:text-lg font-medium leading-relaxed tracking-wide text-gray-700 mb-12 max-w-4xl">
             We are a Christian-based creative company dedicated to sharing the beauty of God's creation through professional photography and the truth of His Word through our official YouTube channel, serving as a peaceful space where art and faith meet.
           </p>
@@ -26,13 +29,6 @@ const Footer = () => {
               PHOTOGRAPH KOREA YOUTUBE
             </span>
           </a>
-        </div>
-
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-50 flex justify-center">
-          <p className="text-[8px] uppercase tracking-[0.4em] font-light">
-            © 2026 Photograph Korea. All Rights Reserved.
-          </p>
         </div>
       </div>
     </footer>
