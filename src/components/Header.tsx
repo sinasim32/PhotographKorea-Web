@@ -22,37 +22,37 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-24 flex items-center"
+        className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 py-6 flex flex-col items-center"
       >
-        <div className="w-full max-w-[1200px] mx-auto px-5 flex justify-between items-center h-full relative">
+        <div className="w-full max-w-[1200px] mx-auto px-5 flex flex-col items-center gap-4 relative">
           
-          {/* Logo - Left aligned */}
-          <div className="flex justify-center items-center z-10">
-            <h1 className="serif text-xl md:text-3xl font-light tracking-[0.15em] text-[#000000] uppercase whitespace-nowrap">
+          {/* [1층] Logo - Perfectly Centered */}
+          <div className="flex justify-center items-center">
+            <h1 className="serif text-2xl md:text-4xl font-light tracking-[0.2em] text-[#000000] uppercase whitespace-nowrap">
               PHOTOGRAPH KOREA
             </h1>
           </div>
 
-          {/* Menu - Right aligned */}
-          <div className="flex items-center z-20">
-            <nav className="hidden md:flex items-center gap-6">
+          {/* [2층] Menu - Centered below Logo */}
+          <div className="w-full">
+            <nav className="hidden md:flex items-center justify-center gap-10">
               {menuItems.map((item) => (
                 <a 
                   key={item.en}
                   href={item.href} 
-                  className="group py-2"
+                  className="group py-1"
                 >
-                  <span className="serif text-xs lg:text-sm tracking-[0.2em] font-light text-[#000000] group-hover:opacity-50 transition-opacity">
+                  <span className="serif text-[10px] md:text-xs tracking-[0.3em] font-light text-[#000000] group-hover:opacity-50 transition-opacity">
                     {item.en}
                   </span>
                 </a>
               ))}
             </nav>
             
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 flex items-center">
               <button 
                 onClick={() => setIsMenuOpen(true)} 
-                className="text-[#000000] p-2 -mr-2 transition-opacity hover:opacity-50"
+                className="text-[#000000] p-2 transition-opacity hover:opacity-50"
                 aria-label="Open menu"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">

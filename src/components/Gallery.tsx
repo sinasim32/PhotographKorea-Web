@@ -3,11 +3,14 @@ import SecureImage from './SecureImage';
 import Masonry from 'react-masonry-css';
 
 // Final production gallery data
-const images = [ 
+const portraitImages = [ 
   { src: '/images/gallery-1.jpg', title: '작품 1' }, 
   { src: '/images/gallery-2.jpg', title: '작품 2' }, 
   { src: '/images/gallery-3.jpg', title: '작품 3' }, 
-  { src: '/images/gallery-4.jpg', title: '작품 4' }, 
+  { src: '/images/gallery-4.jpg', title: '작품 4' }
+];
+
+const landscapeImages = [
   { src: '/images/gallery-5.jpg', title: '작품 5' }, 
   { src: '/images/gallery-6.jpg', title: '작품 6' }, 
   { src: '/images/gallery-7.jpg', title: '작품 7' }, 
@@ -16,20 +19,13 @@ const images = [
   { src: '/images/gallery-10.jpg', title: '작품 10' } 
 ];
 
-const breakpointColumnsObj = {
-  default: 3,
-  1100: 3,
-  700: 2,
-  500: 1
-};
-
-const GalleryItem = ({ image, index }: { image: typeof images[0], index: number }) => (
+const GalleryItem = ({ image, index, aspectRatio }: { image: any, index: number, aspectRatio: string }) => (
   <motion.div 
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-50px' }}
     transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-    className="relative group overflow-hidden rounded-sm mb-4 bg-light-gray"
+    className={`relative group overflow-hidden rounded-sm mb-4 bg-light-gray ${aspectRatio}`}
   >
     <SecureImage 
       src={image.src} 
@@ -56,9 +52,17 @@ const Gallery = () => {
           </motion.h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((img, idx) => (
-            <GalleryItem key={img.src} image={img} index={idx} />
+        {/* [1구역] 세로형 인물 사진 묶음 - 2열 또는 4열 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {portraitImages.map((img, idx) => (
+            <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[3/4]" />
+          ))}
+        </div>
+
+        {/* [2구역] 가로형 풍경 사진 묶음 - 2열 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {landscapeImages.map((img, idx) => (
+            <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[16/9]" />
           ))}
         </div>
       </div>
