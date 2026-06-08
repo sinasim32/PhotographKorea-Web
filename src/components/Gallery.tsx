@@ -20,7 +20,10 @@ const row3Images = [
 
 const row4Images = [
   { src: '/images/gallery-7.jpg', title: '작품 7' }, 
-  { src: '/images/gallery-8.png', title: '작품 8' }, 
+  { src: '/images/gallery-8.png', title: '작품 8' }
+];
+
+const row5Images = [
   { src: '/images/gallery-9.jpg', title: '작품 9' }, 
   { src: '/images/gallery-10.jpg', title: '작품 10' } 
 ];
@@ -79,9 +82,16 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* [넷째줄]: gallery-7, 8, 9, 10 (4열) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* [넷째줄]: gallery-7, 8 (2열) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
           {row4Images.map((img, idx) => (
+            <GalleryItem key={img.src} image={img} index={idx} />
+          ))}
+        </div>
+
+        {/* [다섯째줄]: gallery-9, 10 (2열) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          {row5Images.map((img, idx) => (
             <GalleryItem key={img.src} image={img} index={idx} />
           ))}
         </div>
