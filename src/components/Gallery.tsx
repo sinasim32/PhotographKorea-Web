@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SecureImage from './SecureImage';
 import Masonry from 'react-masonry-css';
 
+// Final production gallery data
 const images = [ 
   { src: '/images/gallery-1.jpg', title: '작품 1' }, 
   { src: '/images/gallery-2.jpg', title: '작품 2' }, 
