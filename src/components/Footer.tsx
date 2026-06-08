@@ -3,7 +3,7 @@ import { Youtube } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="py-12 bg-white text-gray-400 border-t border-gray-100">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex flex-col gap-8">
+      <div className="w-[92%] mx-auto flex flex-col gap-8">
         {/* Main Brand & Description */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="serif text-xl md:text-2xl font-light tracking-[0.15em] text-[#000000] uppercase mb-1">

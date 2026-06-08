@@ -2,14 +2,17 @@ import { motion } from 'framer-motion';
 import SecureImage from './SecureImage';
 import Masonry from 'react-masonry-css';
 
-const images = [
-  { id: 1, src: "/images/gallery-1.jpg", alt: "Seoul Palace" },
-  { id: 2, src: "/images/gallery-2.jpg", alt: "Lotte Tower" },
-  { id: 3, src: "/images/gallery-3.jpg", alt: "Rural Landscape" },
-  { id: 4, src: "/images/gallery-4.jpg", alt: "Traditional Street" },
-  { id: 5, src: "/images/gallery-5.jpg", alt: "Street Photography" },
-  { id: 6, src: "/images/gallery-6.jpg", alt: "Mountain View" },
-  { id: 7, src: "/images/gallery-7.jpg", alt: "Blue Temple" },
+const images = [ 
+  { src: '/images/gallery-1.jpg', title: '작품 1' }, 
+  { src: '/images/gallery-2.jpg', title: '작품 2' }, 
+  { src: '/images/gallery-3.jpg', title: '작품 3' }, 
+  { src: '/images/gallery-4.jpg', title: '작품 4' }, 
+  { src: '/images/gallery-5.jpg', title: '작품 5' }, 
+  { src: '/images/gallery-6.jpg', title: '작품 6' }, 
+  { src: '/images/gallery-7.jpg', title: '작품 7' }, 
+  { src: '/images/gallery-8.jpg', title: '작품 8' }, 
+  { src: '/images/gallery-9.jpg', title: '작품 9' }, 
+  { src: '/images/gallery-10.jpg', title: '작품 10' } 
 ];
 
 const breakpointColumnsObj = {
@@ -29,7 +32,7 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
   >
     <SecureImage 
       src={image.src} 
-      alt={image.alt}
+      alt={image.title}
       objectFit="cover"
       className="w-full h-auto transition-transform duration-700 ease-in-out group-hover:scale-105"
     />
@@ -39,7 +42,7 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
 const Gallery = () => {
   return (
     <section id="gallery" className="py-12 bg-white">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8">
+      <div className="w-[92%] mx-auto">
         <div className="mb-8">
           <motion.h3 
             initial={{ opacity: 0, y: 10 }}
@@ -58,7 +61,7 @@ const Gallery = () => {
           columnClassName="pl-2 bg-clip-padding"
         >
           {images.map((img, idx) => (
-            <GalleryItem key={img.id} image={img} index={idx} />
+            <GalleryItem key={img.src} image={img} index={idx} />
           ))}
         </Masonry>
       </div>
