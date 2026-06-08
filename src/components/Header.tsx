@@ -24,17 +24,17 @@ const Header = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 h-24 flex items-center"
       >
-        <div className="w-full max-w-[1200px] mx-auto px-5 relative flex items-center h-full">
+        <div className="w-full max-w-[1200px] mx-auto px-5 flex justify-between items-center h-full relative">
           
-          {/* Logo - Physically Centered using Absolute Positioning */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center z-10">
+          {/* Logo - Left aligned */}
+          <div className="flex justify-center items-center z-10">
             <h1 className="serif text-xl md:text-3xl font-light tracking-[0.15em] text-[#000000] uppercase whitespace-nowrap">
               PHOTOGRAPH KOREA
             </h1>
           </div>
 
-          {/* Menu - Isolated to the Right using Absolute Positioning */}
-          <div className="absolute right-8 flex items-center z-20">
+          {/* Menu - Right aligned */}
+          <div className="flex items-center z-20">
             <nav className="hidden md:flex items-center gap-6">
               {menuItems.map((item) => (
                 <a 

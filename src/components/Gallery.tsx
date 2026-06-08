@@ -29,13 +29,13 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-50px' }}
     transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-    className="relative group overflow-hidden rounded-sm mb-4 bg-light-gray aspect-square"
+    className="relative group overflow-hidden rounded-sm mb-4 bg-light-gray"
   >
     <SecureImage 
       src={image.src} 
       alt={image.title}
-      objectFit="cover"
-      className="w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105"
+      objectFit="contain"
+      className="w-full h-auto transition-transform duration-700 ease-in-out group-hover:scale-105"
     />
   </motion.div>
 );

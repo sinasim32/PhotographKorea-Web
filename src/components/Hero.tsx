@@ -10,7 +10,8 @@ const Hero = () => {
             width: '100%', 
             maxWidth: '100%', 
             height: 'auto', 
-            display: 'block' 
+            display: 'block',
+            objectFit: 'contain'
           }}
         />
       </div>
