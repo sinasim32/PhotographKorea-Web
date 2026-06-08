@@ -11,7 +11,7 @@ const images = [
   { src: '/images/gallery-5.jpg', title: '작품 5' }, 
   { src: '/images/gallery-6.jpg', title: '작품 6' }, 
   { src: '/images/gallery-7.jpg', title: '작품 7' }, 
-  { src: '/images/gallery-8.jpg', title: '작품 8' }, 
+  { src: '/images/gallery-8.png', title: '작품 8' }, 
   { src: '/images/gallery-9.jpg', title: '작품 9' }, 
   { src: '/images/gallery-10.jpg', title: '작품 10' } 
 ];
