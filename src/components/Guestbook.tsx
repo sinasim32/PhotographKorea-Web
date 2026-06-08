@@ -103,7 +103,7 @@ const Guestbook = () => {
 
   return (
     <section id="guestbook" className="py-12 bg-white">
-      <div className="w-[92%] mx-auto">
+      <div className="w-full max-w-[1200px] mx-auto px-5">
         <div className="mb-8 flex justify-between items-end">
           <motion.h3 
             initial={{ opacity: 0, y: 10 }}

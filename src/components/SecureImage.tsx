@@ -28,7 +28,7 @@ const SecureImage: React.FC<SecureImageProps> = ({
       <img 
         src={src} 
         alt={alt} 
-        className={`w-full h-auto pointer-events-none ${
+        className={`w-full h-full pointer-events-none ${
           objectFit === 'cover' ? 'object-cover' : 
           objectFit === 'contain' ? 'object-contain' : 'object-scale-down'
         }`}

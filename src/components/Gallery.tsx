@@ -29,13 +29,13 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-50px' }}
     transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-    className="relative group overflow-hidden rounded-sm mb-2 bg-light-gray"
+    className="relative group overflow-hidden rounded-sm mb-4 bg-light-gray aspect-square"
   >
     <SecureImage 
       src={image.src} 
       alt={image.title}
       objectFit="cover"
-      className="w-full h-auto transition-transform duration-700 ease-in-out group-hover:scale-105"
+      className="w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105"
     />
   </motion.div>
 );
@@ -43,7 +43,7 @@ const GalleryItem = ({ image, index }: { image: typeof images[0], index: number 
 const Gallery = () => {
   return (
     <section id="gallery" className="py-12 bg-white">
-      <div className="w-[92%] mx-auto">
+      <div className="w-full max-w-[1200px] mx-auto px-5">
         <div className="mb-8">
           <motion.h3 
             initial={{ opacity: 0, y: 10 }}
@@ -56,15 +56,11 @@ const Gallery = () => {
           </motion.h3>
         </div>
 
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="flex w-auto -ml-2"
-          columnClassName="pl-2 bg-clip-padding"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((img, idx) => (
             <GalleryItem key={img.src} image={img} index={idx} />
           ))}
-        </Masonry>
+        </div>
       </div>
     </section>
   );

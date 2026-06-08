@@ -35,7 +35,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-12 bg-white">
-      <div className="w-[92%] mx-auto">
+      <div className="w-full max-w-[1200px] mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Form Section (Left, 1 column) */}
