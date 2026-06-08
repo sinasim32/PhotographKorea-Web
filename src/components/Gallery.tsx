@@ -3,20 +3,23 @@ import SecureImage from './SecureImage';
 import Masonry from 'react-masonry-css';
 
 // Final production gallery data
-const portraitImages = [ 
+const landscapeImages = [ 
+  { src: '/images/gallery-5.jpg', title: '작품 5' }, 
+  { src: '/images/gallery-6.jpg', title: '작품 6' }, 
+  { src: '/images/gallery-9.jpg', title: '작품 9' }, 
+  { src: '/images/gallery-10.jpg', title: '작품 10' } 
+];
+
+const sceneryImages = [
+  { src: '/images/gallery-7.jpg', title: '작품 7' }, 
+  { src: '/images/gallery-8.png', title: '작품 8' }
+];
+
+const portraitImages = [
   { src: '/images/gallery-1.jpg', title: '작품 1' }, 
   { src: '/images/gallery-2.jpg', title: '작품 2' }, 
   { src: '/images/gallery-3.jpg', title: '작품 3' }, 
   { src: '/images/gallery-4.jpg', title: '작품 4' }
-];
-
-const landscapeImages = [
-  { src: '/images/gallery-5.jpg', title: '작품 5' }, 
-  { src: '/images/gallery-6.jpg', title: '작품 6' }, 
-  { src: '/images/gallery-7.jpg', title: '작품 7' }, 
-  { src: '/images/gallery-8.png', title: '작품 8' }, 
-  { src: '/images/gallery-9.jpg', title: '작품 9' }, 
-  { src: '/images/gallery-10.jpg', title: '작품 10' } 
 ];
 
 const GalleryItem = ({ image, index, aspectRatio }: { image: any, index: number, aspectRatio: string }) => (
@@ -52,17 +55,24 @@ const Gallery = () => {
           </motion.h3>
         </div>
 
-        {/* [1구역] 세로형 인물 사진 묶음 - 2열 또는 4열 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {portraitImages.map((img, idx) => (
-            <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[3/4]" />
+        {/* [1구역 - 상단]: 일반 가로형 사진 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          {landscapeImages.map((img, idx) => (
+            <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[16/9]" />
           ))}
         </div>
 
-        {/* [2구역] 가로형 풍경 사진 묶음 - 2열 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {landscapeImages.map((img, idx) => (
+        {/* [2구역 - 중단]: 나무와 파도 사진 (독립 2열) */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          {sceneryImages.map((img, idx) => (
             <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[16/9]" />
+          ))}
+        </div>
+
+        {/* [3구역 - 최하단]: 세로형 인물 사진 (한 줄에 4장 꽉 차게) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {portraitImages.map((img, idx) => (
+            <GalleryItem key={img.src} image={img} index={idx} aspectRatio="aspect-[3/4]" />
           ))}
         </div>
       </div>
